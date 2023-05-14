@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>CRUD Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="user.js"></script>
+    <link rel="stylesheet" href="./users.css">
+</head>
+<body ng-controller="myController">
+    <center>
+        <h1>Resume Review Portal</h1>
+        <form ng-submit="addUser()">
+            <input type="text" ng-model="name" placeholder="Name">
+            <input type="number" ng-model="age" placeholder="Age">
+            <input type="email" ng-model="email" placeholder="Email">
+            <input type="password" ng-model="password" placeholder="Password">
+            <input type="tel" ng-model="phone" placeholder="Phone Number">
+            <input type="url" ng-model="resumeLink" placeholder="Google Drive Link for Uploading Resume">
+            <input type="text" ng-model="degree" placeholder="Degree">
+            <input type="text" ng-model="college" placeholder="College">
+            <button type="submit">Add User</button>
+        </form>
+    </center>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Phone Number</th>
+            <th>Resume Link</th>
+            <th>Degree</th>
+            <th>College</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.resumeLink }}</td>
+            <td>{{ user.degree }}</td>
+            <td>{{ user.college }}</td>
+            <td>
+            <button type="button" ng-click="deleteUser(user)">Delete</button>
+            <button type="button" ng-click="updateUser(user)">Update</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
